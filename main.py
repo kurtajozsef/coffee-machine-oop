@@ -5,9 +5,12 @@ from money_machine import MoneyMachine
 menu = Menu()
 coffee_maker = CoffeeMaker()
 money_machine = MoneyMachine()
-while True:
-    order_name = input(f"What would you like?{menu.get_items()} ")
-    if order_name == "report":
+is_on = True
+while is_on:
+    order_name = input(f"What would you like?{menu.get_items()} ").lower()
+    if order_name == "off":
+        is_on = False
+    elif order_name == "report":
         coffee_maker.report()
         money_machine.report()
     else:
